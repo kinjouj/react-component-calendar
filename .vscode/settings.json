@@ -19,8 +19,8 @@
     "editor.tabSize": 2,
     "typescript.preferences.quoteStyle": "single"
   },
+  "css.lint.emptyRules": "ignore",
   "editor.tabSize": 2,
   "typescript.format.semicolons": "insert",
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
-  "css.lint.emptyRules": "ignore"
+  "typescript.preferences.preferTypeOnlyAutoImports": true
 }
