@@ -1,0 +1,59 @@
+#root {
+  width: 500px;
+  height: 500px;
+}
+
+.calendar {
+  width: 100%;
+  height: 100%;
+}
+
+.calendar-header {
+}
+
+.calendar-header__row {
+}
+
+.calendar-header__button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.calendar-header__button--prev {
+  font-size: 1.22em;
+}
+
+.calendar-header__button--next {
+  font-size: 1.22em;
+}
+
+.calendar-header__cell {
+}
+
+.calendar-header__cell--text {
+  font-weight: normal;
+  text-align: center;
+}
+
+.calendar-body {
+}
+
+.calendar-body__row {
+}
+
+.calendar-body__cell {
+  text-align: center;
+}
+
+.calendar-body__cell--saturday {
+  color: dodgerblue;
+}
+
+.calendar-body__cell--sunday {
+  color: red;
+}
+
+.calendar-body__cell--holiday {
+  color: red !important;
+}
