@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { buildCalendarData } from '../utils/buildCalendarData';
-import { Header, Week } from './ui';
+import Header from './ui/Header';
+import Week from './ui/Week';
 
 const Calendar = ({ initialDate }: { initialDate: Date }): React.JSX.Element => {
   const [date, setDate] = useState(() => initialDate);

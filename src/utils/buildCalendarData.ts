@@ -1,5 +1,10 @@
-import { isHoliday } from 'holiday-jp';
+import { between as holidayBetween } from '@holiday-jp/holiday_jp';
 import type { CalendarDate } from '../types/calendar-date.type';
+
+const getHolidayName = (date: Date): string | null => {
+  const lists = holidayBetween(date, date);
+  return lists[0]?.name ?? null;
+};
 
 export const buildCalendarData = (currentDate: Date): (CalendarDate | null)[][] => {
   const year = currentDate.getFullYear();
@@ -10,7 +15,8 @@ export const buildCalendarData = (currentDate: Date): (CalendarDate | null)[][] 
 
   for (let day = 1; day <= lastDay; day++) {
     const date = new Date(year, month, day);
-    week.push({ date, isHoliday: isHoliday(date) });
+    const holidayName = getHolidayName(date);
+    week.push({ date, holidayName, isHoliday: holidayName !== null });
 
     if (week.length === 7) {
       weeks.push(week);
@@ -19,11 +25,7 @@ export const buildCalendarData = (currentDate: Date): (CalendarDate | null)[][] 
   }
 
   if (week.length > 0) {
-    while (week.length < 7) {
-      week.push(null);
-    }
-
-    weeks.push(week);
+    weeks.push([...week, ...Array.from({ length: 7 - week.length }, () => null)]);
   }
 
   return weeks;
